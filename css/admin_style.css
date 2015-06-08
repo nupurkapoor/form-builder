@@ -1,27 +1,49 @@
-	<style>
+<style>
 		
-		.activeDroppable {
-			background-color: #eeffee;
-		}
+	.activeDroppable {
+		background-color: #eeffee;
+	}
 
-		.hoverDroppable {
-			background-color: lightgreen;
-		}
+	.hoverDroppable {
+		background-color: lightgreen;
+	}
 
-		.draggableField {
-			/* float: left; */
-			padding-left:5px;
-		}
-		
-		.draggableField > input,select, button, .checkboxgroup, .selectmultiple, .radiogroup {
-			margin-top: 10px;
-			margin-right: 10px;
-			margin-bottom: 10px;
-		}
-
-		.draggableField:hover{
-			background-color: #ccffcc;
-		}
-	</style>
+	.draggableField {
+		/* float: left; */
+		padding-left:5px;
+	}
 	
+	.draggableField > input,select, button, .checkboxgroup, .selectmultiple, .radiogroup {
+		margin-top: 10px;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+
+	.draggableField:hover{
+		background-color: #ccffcc;
+	}
+</style>
+
+<style id="content-styles">
+	/* Styles that are also copied for Preview */
+
+
+	body {
+		margin: 10px 0 0 10px;
+		background-color: lightgreen;
+	}
+
+	.tabbable {
+		margin: 10px 0 0 10px;
+	}
 	
+	#listOfFields{
+		margin: 0px 0 0 10px;
+		width: 20%;
+	}
+
+	.dependent-qn {
+		margin: 5px 10px 0 10px; /*top,right,bottom,left*/
+	}
+
+</style>
