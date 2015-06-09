@@ -46,4 +46,12 @@
 		margin: 5px 10px 0 10px; /*top,right,bottom,left*/
 	}
 
+	.control-label {
+			display: inline-block !important;
+			padding-top: 5px;
+			text-align: right;
+			vertical-align: baseline;
+			padding-right: 10px;
+		}
+
 </style>
