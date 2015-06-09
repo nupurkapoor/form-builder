@@ -54,4 +54,24 @@
 			padding-right: 10px;
 		}
 
+	.dialog {
+			display: none;
+		}
+
+		.input-small {
+			margin: 5px 0 0 5px;
+		}
+
+		.score {
+			margin: 5px 0 0 5px;
+		}
+
+		.input-medium {
+			margin: 5px 0 0 5px;
+		}
+
+		.input-large {
+			width: 350px;
+		}
+
 </style>
