@@ -36,6 +36,21 @@
 	.tabbable {
 		margin: 10px 0 0 10px;
 	}
+
+	.form-intro{
+		margin: 10px 0 0 10px;
+		width: 92%;
+	}
+
+	.form-other{
+		margin: 10px 0 0 10px;
+		width: 92%;
+	}
+
+	.form-content{
+		margin: 10px 0 0 10px;
+		width: 92%;
+	}
 	
 	#listOfFields{
 		margin: 0px 0 0 10px;
@@ -47,31 +62,52 @@
 	}
 
 	.control-label {
-			display: inline-block !important;
-			padding-top: 5px;
-			text-align: right;
-			vertical-align: baseline;
-			padding-right: 10px;
-		}
+		display: inline-block !important;
+		padding-top: 5px;
+		text-align: right;
+		vertical-align: baseline;
+		padding-right: 10px;
+	}
 
 	.dialog {
-			display: none;
-		}
+		display: none;
+	}
 
-		.input-small {
-			margin: 5px 0 0 5px;
-		}
+	.input-small {
+		margin: 5px 0 0 5px;
+	}
 
-		.score {
-			margin: 5px 0 0 5px;
-		}
+	.score {
+		margin: 5px 0 0 5px;
+	}
 
-		.input-medium {
-			margin: 5px 0 0 5px;
-		}
+	.input-medium {
+		margin: 5px 0 0 5px;
+	}
 
-		.input-large {
-			width: 350px;
-		}
+	.input-large {
+		width: 350px;
+	}
+
+	#selected-content{
+		margin: 0 0 0 10px;
+		width: auto;
+	}
+
+	#remove-btn {
+		margin: 10px 0 0 10px;
+	}
+
+	#add-subquestion-btn {
+		margin: 10px 0 0 10px;
+	}
+
+	#edit-btn {
+		margin: 10px 0 0 10px;
+	}
+
+	#add-option-btn {
+		margin: 10px 0 0 10px;
+	}
 
 </style>
