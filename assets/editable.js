@@ -1,7 +1,25 @@
 
 (function () {
+
+  var qnIndex;
+  var lang = 'en';
+
+  $('.language-select').val("en"); //set default language to be english
+
+  // escape content for possible back slashes
+  function esc_quot(text){
+    return text.replace("\"", "\\\"");
+  }
+
+  function makeDraggable() {
+    $(".selectorField").draggable({ helper: "clone",stack: "div",cursor: "move", cancel: null  });
+  }
+
+  function disableDraggable() {
+    $('.droppedFields').draggable( 'disable' );
+  }
+
   //tabbify content
-    
   $('ul.tabs').each(function(){
     // For each set of tabs, keep track of which tab is active and it's associated content
     var $active, $content, $links = $(this).find('a');
