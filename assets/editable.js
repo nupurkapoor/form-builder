@@ -6,6 +6,14 @@
 
   $('.language-select').val("en"); //set default language to be english
 
+  $(document).on( 'change', '.language-select', function(){
+      lang = $(this).val();
+      $('.language-hidden').val(lang);
+      $('#selected_action_column').html('');
+      buildData();
+      updateQuestionIndex();
+  });
+
   // escape content for possible back slashes
   function esc_quot(text){
     return text.replace("\"", "\\\"");
@@ -17,6 +25,20 @@
 
   function disableDraggable() {
     $('.droppedFields').draggable( 'disable' );
+  }
+
+  function makeDroppedFieldsDraggable () {
+    $( ".droppedFields" ).sortable({
+      cancel: null, // Cancel the default events on the controls
+      connectWith: ".droppedFields",
+      start: function (event, ui) {
+        currentSortId = ui.helper[0].id;
+        $('#' + currentSortId).css('background-color','#ccffcc');  //highlight the question being dragged/sorted
+      },
+      stop: function (event, ui) {
+        $('#' + currentSortId).css('background-color',''); //release styling 
+      }
+    });
   }
 
   //tabbify content
@@ -51,6 +73,9 @@
       e.preventDefault();
     });
   });
+
+  if(typeof(console)=='undefined' || console==null) { console={}; console.log=function(){}} //defining console if not already
+
 })();
  
 
