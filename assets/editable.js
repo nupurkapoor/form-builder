@@ -42,6 +42,26 @@
   }
 
   $( document ).ready(function() {
+
+    lang = 'en';
+    $('.secondary').hide();
+    // dataURL = "http://adanode.beaconfire.us/risktest/";
+    console.log('no need to define dataurl again');
+    buildData();
+    makeDraggable();
+    makeDroppedFieldsDraggable();
+    formElements = [];
+    optionValue = '';
+    riskScore = '';
+    riskTitle = '';
+    riskShortContent = '';
+    riskContent = '';
+    editMode = false;
+    iOptionIdx = 0;
+    iSubOptionIdx = 0;
+    
+    var currentSortId, qType;
+
     //tabbify content
     $('ul.tabs').each(function(){
       // For each set of tabs, keep track of which tab is active and it's associated content
@@ -73,6 +93,58 @@
 
         e.preventDefault();
       });
+    });
+    
+    // Action to take on attempt to drop a new field - creation and placement 
+    $( ".droppedFields" ).droppable({
+      activeClass: "activeDroppable",
+      hoverClass: "hoverDroppable",
+      accept: ":not(.ui-sortable-helper)",
+      drop: function( event, ui ) {
+          updateQuestionIndex();
+          qnIndex = parseInt(window.qnIndex);
+          iSubOptionIdx = 0;
+          var draggable = ui.draggable; 
+          
+          draggable.addClass("droppedField");
+          draggable.addClass("newElement"); 
+          draggedElem = $("li[class*='newElement']")[0];
+          var qType = $.trim(draggedElem.className.match("ctrl-.*")[0].split(" ")[0].split("-")[1]);
+          
+          qnID = "qn-"+(qnIndex);
+          $(this).append(
+              '<form class="ada-form droppedField newQn" id="'+qnID+'">'+
+              '<div class="parent-qn">'+
+              '<input type="text" name="title" placeholder="Question Title" class="ctrl-textbox editable">'+
+              '<input type="text" name="subtitle" placeholder="Question Sub Title" class="ctrl-textbox editable">'+
+              '<input type="text" name="name" placeholder="Question Name/Keyword" class="ctrl-textbox editable">'+
+              '<input type="hidden" name="type" value="">'+
+              '<input class="language-hidden" type="hidden" name="lang" value="'+lang+'">'+
+              '<a href="javascript:void(0);" class="toggle" data-toggle="collapse" data-target="#'+qnID+'-collapsible"><i class="icon-minus"></i> Toggle</a>'+
+              '<div class="ctrl-selectgroup collapse in" id="'+qnID+'-collapsible">'+
+              '<ul class="option-list">'+
+              '<li id="option-0" class="option-list-item">'+
+              '<input type ="checkbox">'+
+              '<input class="prop-label" name="children[0].label" type="text" value=""  placeholder="Option Label.." class="input-small editable">'+
+              '<input type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value.." class="input-small editable opt-value">'+
+              '<input type="number" class="score" value='+ esc_quot(riskScore) +' name="children[0].risk[0].score" placeholder="Risk Score.." class="input-small editable">'+
+              '<input type="text" value="'+ riskTitle +'" name="children[0].risk[0].title" placeholder="Risk Title.." class="input-small editable">'+
+              '<input type="text" value="'+ riskShortContent +'" name="children[0].risk[0].short_content" placeholder="Risk Short Content.." class="input-medium editable">'+
+              '<br><textarea name="children[0].risk[0].content" placeholder="Risk Content.." class="editable" style="width:auto; height:auto"></textarea>'+
+              '<a href="javascript:void(0);" class="btn-small btn-info add-subquestion-btn" id="add-subquestion-btn">Add Sub Question</a>'+
+              '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove</a></li></ul></div></form>');          
+          
+          $('.newQn input[name=type]').val(qType); 
+          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn" id="edit-btn">Edit</a>');
+          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn btn-primary hide" id="add-option-btn">Add Options</a>');
+          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn btn-danger" id="remove-btn">Remove</a>');
+          $('#' + qnID).addClass(qType);
+          $('#' + qnID).removeClass("newQn");
+          $('.draggableField').removeClass("droppedField");
+
+          draggable.removeClass("newElement");
+          updateQuestionIndex();
+      }
     });
   });
   
