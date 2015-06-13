@@ -146,6 +146,80 @@
           updateQuestionIndex();
       }
     });
+  
+    //Make the droppedFields sortable and connected with other droppedFields containers
+    
+    $.fn.serializeObject = function() {
+        function pushObject(obj, prop) {
+            if (!obj[prop]) { obj[prop] = {}; }
+            return obj[prop];
+        }
+
+        function pushArray(obj, prop) {
+            if (!obj[prop]) { obj[prop] = []; }
+            return obj[prop];
+        }
+
+        function pushValue(obj, prop, val) {
+            if (obj[prop] != null) {
+                if (!$.isArray(obj[prop])) { obj[prop] = [obj[prop]]; }
+                obj[prop].push(val);
+            } else {
+                obj[prop] = val;
+            }
+            return obj[prop];
+        }
+        
+        function pushIndexedProp(obj, indexedProp, val) {
+            var indexes = splitIndexes(indexedProp),
+            // debugger
+                prop = indexes.shift(),
+                lastIndex = indexes.pop();
+            if (lastIndex != null) {
+                obj = pushArray(obj, prop);
+                $.each(indexes, function (i, index) {
+                    obj = pushArray(obj, index);
+                });
+                prop = lastIndex;
+            }
+            return (val != null ) ? pushValue(obj, prop, val) : pushObject(obj, prop);
+        }
+
+        function splitIndexes(s) {
+          // debugger;
+            var result = [];
+            var start = s.indexOf('[');
+            if (start >= 0) {
+
+                result.push(s.substring(0, start));
+                while (start >= 0) {
+                    var end = s.indexOf(']', start + 1);
+                    if (end >= 0) {
+                        result.push(parseInt(s.substring(start + 1, end), 10));
+                        start = s.indexOf('[', end + 1);
+                    } else {
+                        start = -1;
+                    }
+                }
+            } else {
+                result.push(s);
+            }
+            return result;
+        }
+
+        var result = {};
+        $.each(this.serializeArray(), function() {
+            var props = this.name.split('.'),
+                lastProp = props.pop(),
+                obj = result;
+            $.each(props, function (i, prop) {
+                obj = pushIndexedProp(obj, prop);
+            });
+            pushIndexedProp(obj, lastProp, this.value || '');
+        });
+        return result;
+    };
+    
   });
   
   if(typeof(console)=='undefined' || console==null) { console={}; console.log=function(){}} //defining console if not already
