@@ -10,18 +10,14 @@
       lang = $(this).val();
       $('.language-hidden').val(lang);
       $('#selected_action_column').html('');
-      //buildData();
-      //updateQuestionIndex();
+      updateQuestionIndex();
   });
 
   // escape content for possible back slashes
   function esc_quot(text){
     return text.replace("\"", "\\\"");
   }
-  
-  function buildData(){
-    loadData(lang);
-  }
+
   function updateQuestionIndex () {
     existingQuestions(lang);
   }
