@@ -1,8 +1,7 @@
 
 (function () {
 
-  var qnIndex;
-  var lang = 'en';
+  var qnIndex, lang = 'en';
 
   $('.language-select').val("en"); //set default language to be english
 
@@ -178,14 +177,14 @@
             // debugger
                 prop = indexes.shift(),
                 lastIndex = indexes.pop();
-            if (lastIndex != null) {
+            if (lastIndex !== null) {
                 obj = pushArray(obj, prop);
                 $.each(indexes, function (i, index) {
                     obj = pushArray(obj, index);
                 });
                 prop = lastIndex;
             }
-            return (val != null ) ? pushValue(obj, prop, val) : pushObject(obj, prop);
+            return (val !== null ) ? pushValue(obj, prop, val) : pushObject(obj, prop);
         }
 
         function splitIndexes(s) {
@@ -222,10 +221,100 @@
         });
         return result;
     };
+
+    $(document).on( 'click', '#remove-btn', function(){
+      elem = $(this).parent();
+      parentForm = $(this).parent().closest('.ada-form');
+
+      if (window.confirm("Are you sure about this?")) {
+
+        var index= $.inArray($(elem).attr('id'), formElements);
+        var newID;
+        if (index != -1) {
+            formElements.splice(index,1);
+        }
+        
+        if(! $(elem).closest('.dependent-qn').length) {
+            elem.prev().remove();
+            elem[0].remove();
+            /* re-index option list*/
+            
+            $(parentForm).find('.option-list-item').each(function(index){
+              
+              newID = "option-" + (index);
+              $(this).attr("id","option-" + (index));
+
+              $(this).find("input[name$='label']").attr("name","children["+(index)+"].label");
+
+              $(this).find("input[name$='value']").attr("name","children["+(index)+"].value");
+              
+              $(this).find("input[name$='score']").attr("name","children["+(index)+"]risk[0].score");
+
+              $(this).find("input[name$='title']").attr("name","children["+(index)+"]risk[0].title");
+
+              $(this).find("input[name$='short_content']").attr("name","children["+(index)+"]risk[0].short_content");
+
+              $(this).find("textarea[name$='content']").attr("name","children["+(index)+"]risk[0].content");
+            });
+          }else{
+          
+          if ($(elem).hasClass('sub-option-list-item')) {
+              toRemove = $(elem).closest('li.sub-option-list-item');
+              toRemove[0].remove();
+              $(parentForm).find('.sub-option-list-item').each(function(index){
+                
+                newID = "sub-option-" + (index);
+                $(this).attr("id","sub-option-" + (index));
+
+                // debugger;
+                nameElem = $("#"+newID).find("input[name$='label']").attr("name");
+
+                replceWith = nameElem.replace(/children....label/, "children["+(index)+"].label");
+
+                $("#"+newID).find("input[name$='label']").attr("name",replceWith);
+
+                nameElem = $("#"+newID).find("input[name$='value']").attr("name");
+
+                replceWith = nameElem.replace(/children....value/, "children["+(index)+"].value");
+
+                $("#"+newID).find("input[name$='value']").attr("name",replceWith); 
+
+                nameElem = $("#"+newID).find("input[name$='score']").attr("name");
+
+                replceWith = nameElem.replace(/children....risk....score/, "children["+(index)+"].score");
+
+                $("#"+newID).find("input[name$='score']").attr("name",replceWith); 
+
+                nameElem = $("#"+newID).find("input[name$='title']").attr("title");
+
+                replceWith = nameElem.replace(/children....risk....title/, "children["+(index)+"].title");
+
+                $("#"+newID).find("input[name$='title']").attr("name",replceWith); 
+
+                nameElem = $("#"+newID).find("input[name$='short_content']").attr("short_content");
+
+                replceWith = nameElem.replace(/children....risk....short_content/, "children["+(index)+"].short_content");
+
+                $("#"+newID).find("input[name$='short_content']").attr("name",replceWith); 
+
+                nameElem = $("#"+newID).find("textarea[name$='content']").attr("name");
+
+                replceWith = nameElem.replace(/children....risk....content/, "children["+(index)+"].content");
+
+                $("#"+newID).find("textarea[name$='content']").attr("name",replceWith); 
+
+            });
+          } else{
+              toRemove = $(elem).closest('.dependent-qn');
+          }
+        }
+      }
+      updateQuestionIndex();
+    });
     
-  });
+  });// end of doc ready
   
-  if(typeof(console)=='undefined' || console==null) { console={}; console.log=function(){}} //defining console if not already
+  if(typeof(console)=='undefined' || console==null) { console={}; console.log=function(){}}; //defining console if not already
 
 })();
  

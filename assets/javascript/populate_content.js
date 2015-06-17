@@ -5,8 +5,8 @@ function existingQuestions(iCounter){
       var index = $.inArray($this.attr('id'), formElements);
       if (index == -1) {
           formElements.push($this.attr('id'));
-      };
-  })
+      }
+  });
   qnIndex = formElements.length;
 }
 
