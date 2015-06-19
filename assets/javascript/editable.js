@@ -47,9 +47,7 @@
 
     lang = 'en';
     $('.secondary').hide();
-    // dataURL = "http://adanode.beaconfire.us/risktest/";
     console.log('no need to define dataurl again');
-    //buildData();
     makeDraggable();
     makeDroppedFieldsDraggable();
     formElements = [];
