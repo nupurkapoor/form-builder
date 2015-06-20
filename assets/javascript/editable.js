@@ -131,7 +131,6 @@
               '<input type="text" value="'+ riskTitle +'" name="children[0].risk[0].title" placeholder="Risk Title.." class="input-small editable">'+
               '<input type="text" value="'+ riskShortContent +'" name="children[0].risk[0].short_content" placeholder="Risk Short Content.." class="input-medium editable">'+
               '<br><textarea name="children[0].risk[0].content" placeholder="Risk Content.." class="editable" style="width:auto; height:auto"></textarea>'+
-              '<a href="javascript:void(0);" class="btn-small btn-info add-subquestion-btn" id="add-subquestion-btn">Add Sub Question</a>'+
               '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove</a></li></ul></div></form>');          
           
           $('.newQn input[name=type]').val(qType); 
