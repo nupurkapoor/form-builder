@@ -122,7 +122,7 @@
               '<input class="language-hidden" type="hidden" name="lang" value="'+lang+'">'+
               '<a href="javascript:void(0);" class="toggle" data-toggle="collapse" data-target="#'+qnID+'-collapsible"><i class="icon-minus"></i> Toggle</a>'+
               '<div class="ctrl-selectgroup collapse in" id="'+qnID+'-collapsible">'+
-              '<ul class="option-list">'+
+              '<ul class="option-list ">'+
               '<li id="option-0" class="option-list-item">'+
               '<span class="checkbox"><input type="checkbox" value=""></span>'+ 
               '<input class="prop-label" name="children[0].label" type="text" value=""  placeholder="Option Label.." class="input-small editable">'+

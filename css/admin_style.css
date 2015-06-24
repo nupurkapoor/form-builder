@@ -22,6 +22,17 @@
 	.draggableField:hover{
 		background-color: #ccffcc;
 	}
+
+	ul {
+    	list-style-type: none;
+	}
+
+	li {
+    	list-style-type: none;
+	}
+
+	
+	
 </style>
 
 <style id="content-styles">
