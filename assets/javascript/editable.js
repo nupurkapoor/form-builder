@@ -127,10 +127,7 @@
               '<span class="checkbox"><input type="checkbox" value=""></span>'+ 
               '<input class="prop-label" name="children[0].label" type="text" value=""  placeholder="Option Label.." class="input-small editable">'+
               '<input type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value.." class="input-small editable opt-value">'+
-              '<input type="number" class="score" value='+ esc_quot(riskScore) +' name="children[0].risk[0].score" placeholder="Risk Score.." class="input-small editable">'+
-              '<input type="text" value="'+ riskTitle +'" name="children[0].risk[0].title" placeholder="Risk Title.." class="input-small editable">'+
-              '<input type="text" value="'+ riskShortContent +'" name="children[0].risk[0].short_content" placeholder="Risk Short Content.." class="input-medium editable">'+
-              '<br><textarea name="children[0].risk[0].content" placeholder="Risk Content.." class="editable" style="width:auto; height:auto"></textarea>'+
+              '<textarea name="children[0].risk[0].content" placeholder="Description.." class="editable" style="width:auto; height:auto"></textarea>'+
               '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove</a></li></ul></div></form>');          
           
           $('.newQn input[name=type]').val(qType); 
