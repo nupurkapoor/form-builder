@@ -127,7 +127,7 @@
               '<span class="checkbox"><input type="checkbox" value=""></span>'+ 
               '<input class="prop-label" name="children[0].label" type="text" value=""  placeholder="Option Label.." class="input-small editable">'+
               '<input type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value.." class="input-small editable opt-value">'+
-              '<br><textarea name="children[0].risk[0].content" placeholder="Description.." class="editable form-control" rows="3"></textarea>'+
+              '<br><textarea name="children[0].risk[0].content" placeholder="Description.." class="editable form-control" style="height:auto;width:900px"></textarea>'+
               '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove</a></li></ul></div></form>');          
           
           $('.newQn input[name=type]').val(qType); 
