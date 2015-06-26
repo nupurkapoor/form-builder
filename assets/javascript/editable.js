@@ -121,8 +121,8 @@
               '<input type="hidden" name="type" value="">'+
               '<input class="language-hidden" type="hidden" name="lang" value="'+lang+'">'+
               '<a href="javascript:void(0);" class="toggle" data-toggle="collapse" data-target="#'+qnID+'-collapsible"><i class="icon-minus"></i> Toggle</a>'+
+              '<ul class="option-list unstyled">'+
               '<div class="ctrl-selectgroup collapse in" id="'+qnID+'-collapsible">'+
-              '<ul class="option-list ">'+
               '<li id="option-0" class="option-list-item">'+
               '<input type="checkbox" value="" class="checkbox">'+ 
               '<input class="prop-label input-medium editable" name="children[0].label" type="text" value=""  placeholder="Option Label..">'+
