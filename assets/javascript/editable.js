@@ -124,9 +124,9 @@
               '<div class="ctrl-selectgroup collapse in" id="'+qnID+'-collapsible">'+
               '<ul class="option-list ">'+
               '<li id="option-0" class="option-list-item">'+
-              '<span class="checkbox"><input type="checkbox" value=""></span>'+ 
-              '<input class="prop-label" name="children[0].label" type="text" value=""  placeholder="Option Label.." class="input-small editable">'+
-              '<input type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value.." class="input-small editable opt-value">'+
+              '<input type="checkbox" value="" class="checkbox">'+ 
+              '<input class="prop-label input-medium editable" name="children[0].label" type="text" value=""  placeholder="Option Label..">'+
+              '<input class="input-medium editable opt-value" type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value..">'+
               '<br><textarea name="children[0].risk[0].content" placeholder="Description.." class="editable form-control" style="height:auto;width:900px"></textarea>'+
               '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove</a></li></ul></div></form>');          
           
