@@ -123,7 +123,7 @@
               '<a href="javascript:void(0);" class="toggle" data-toggle="collapse" data-target="#'+qnID+'-collapsible"><i class="icon-minus"></i> Toggle</a>'+
               '<ul class="option-list unstyled">'+
               '<div class="ctrl-selectgroup collapse in" id="'+qnID+'-collapsible">'+
-              '<li id="option-0" class="option-list-item">'+
+              '<li class="option-list-item" id="option-0">'+
               '<input type="checkbox" value="" class="checkbox">'+ 
               '<input class="prop-label input-medium editable" name="children[0].label" type="text" value=""  placeholder="Option Label..">'+
               '<input class="input-medium editable opt-value" type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value..">'+
