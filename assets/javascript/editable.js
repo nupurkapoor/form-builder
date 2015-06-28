@@ -128,12 +128,12 @@
               '<input class="prop-label input-medium editable" name="children[0].label" type="text" value=""  placeholder="Option Label..">'+
               '<input class="input-medium editable opt-value" type="text" name="children[0].value" value="'+ optionValue +'" placeholder="Option Value..">'+
               '<br><textarea name="children[0].risk[0].content" placeholder="Description.." class="editable form-control" style="height:auto;width:900px"></textarea>'+
-              '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove</a></li></ul></div></form>');          
+              '<a href="javascript:void(0);" class="btn-small btn-danger" id="remove-btn">Remove Option</a></li></ul></div></form>');          
           
           $('.newQn input[name=type]').val(qType); 
-          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn" id="edit-btn">Edit</a>');
+          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn" id="edit-btn">Edit Question</a>');
           $('#' + qnID).append('<a href="javascript:void(0);" class = "btn btn-primary hide" id="add-option-btn">Add Options</a>');
-          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn btn-danger" id="remove-btn">Remove</a>');
+          $('#' + qnID).append('<a href="javascript:void(0);" class = "btn btn-danger" id="remove-btn">Remove Question</a>');
           $('#' + qnID).addClass(qType);
           $('#' + qnID).removeClass("newQn");
           $('.draggableField').removeClass("droppedField");
