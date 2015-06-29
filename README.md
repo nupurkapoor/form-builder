@@ -6,4 +6,3 @@ An Online Form Builder with an easy drag & drop interface, and multiple field ty
 * Highlight Radio and Checkbox type differently
 * Adding options feature
 * Edit exitsing question
-* Allignment CSS ugghh
