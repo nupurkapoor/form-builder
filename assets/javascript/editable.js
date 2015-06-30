@@ -89,7 +89,7 @@
     
     $(toAppend).append(subQnTpl);
     $('.newSubQn input[name=type]').val(subQType);
-    $('#' + subQnID).append('<a href="javascript:void(0);" class = "btn" id="edit-btn">Edit</a>');
+    $('#' + subQnID).append('<a href="javascript:void(0);" class = "btn" id="edit-btn">Edit Question</a>');
     $('#' + subQnID).append('<a href="javascript:void(0);" class = "btn btn-primary hide sub-qn-options" id="add-option-btn">Add Options</a>');
     $('#' + subQnID).append('<a href="javascript:void(0);" class = "btn btn-danger" id="remove-btn">Remove</a>');
     $('#' + subQnID).removeClass("newSubQn");
@@ -162,7 +162,7 @@
       $('.add-subquestion-btn').each(function(){           
          $('.add-subquestion-btn').addClass('hide');
       });
-      if ($(editBtn).html() == "Edit" ) {
+      if ($(editBtn).html() == "Edit Question" ) {
         $(editBtn).html("Save");
         $(editBtn).addClass("btn-success");
         $('.droppedFields').sortable( "disable" );
@@ -178,7 +178,7 @@
            $('.add-subquestion-btn').removeClass('hide');
         });
         
-        $(editBtn).html("Edit");
+        $(editBtn).html("Edit Question");
         $(addBtn).addClass('hide');
         $(subBtn).removeClass("hide");
       };
