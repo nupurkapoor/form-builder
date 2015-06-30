@@ -4,5 +4,4 @@ An Online Form Builder with an easy drag & drop interface, and multiple field ty
 
 ##### TO Dos
 * Highlight Radio and Checkbox type differently
-* Adding options feature
 * Edit exitsing question
