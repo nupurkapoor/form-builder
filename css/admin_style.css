@@ -44,6 +44,10 @@
 		background-color: lightgreen;
 	}
 
+	.icon-minus {
+		margin: 10px 0 0 10px;
+	}
+
 	.tabbable {
 		margin: 10px 0 0 10px;
 	}
